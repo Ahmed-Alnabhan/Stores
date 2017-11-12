@@ -3,14 +3,13 @@ package com.bottlerocket.www.bottlerockettest.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bottlerocket.www.bottlerockettest.R;
 import com.bottlerocket.www.bottlerockettest.model.Stores;
-import com.bottlerocket.www.bottlerockettest.presenter.stores.StoresPresenter;
-import com.bottlerocket.www.bottlerockettest.presenter.stores.StoresPresenterImplementer;
 import com.bottlerocket.www.bottlerockettest.remote.DataHandler;
 import com.bottlerocket.www.bottlerockettest.remote.DataHandlerInterface;
 import com.bottlerocket.www.bottlerockettest.view.stores.StoresView;
@@ -20,8 +19,9 @@ import com.bottlerocket.www.bottlerockettest.view.stores.StoresView;
  */
 public class StoresFragment extends Fragment implements StoresView {
 
-    private StoresPresenter storesPresenter;
     private DataHandlerInterface dataHandler;
+    private LoaderManager loaderManager;
+
     public StoresFragment() {
     }
 
@@ -31,10 +31,11 @@ public class StoresFragment extends Fragment implements StoresView {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stores, container, false);
-        storesPresenter = new StoresPresenterImplementer();
-        dataHandler = new DataHandler(getContext());
+
+        loaderManager = getLoaderManager();
+        dataHandler = new DataHandler(loaderManager, getContext());
+        dataHandler.setStoresView(this);
         dataHandler.getJSONData();
-        storesPresenter.getStores();
         return view;
     }
 

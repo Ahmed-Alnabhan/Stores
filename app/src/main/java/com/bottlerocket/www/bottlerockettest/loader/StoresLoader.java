@@ -1,8 +1,8 @@
 package com.bottlerocket.www.bottlerockettest.loader;
 
-import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.database.Cursor;
+import android.support.v4.content.AsyncTaskLoader;
 
 import com.bottlerocket.www.bottlerockettest.model.Store;
 import com.bottlerocket.www.bottlerockettest.model.Stores;
