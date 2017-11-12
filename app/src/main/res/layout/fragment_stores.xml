@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.bottlerocket.www.bottlerockettest.fragments.StoresFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -9,6 +10,30 @@
         android:id="@+id/no_data_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/no_data_message"
+        android:visibility="gone"/>
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:scrollbarStyle="outsideOverlay"
+                android:paddingTop="@dimen/dimen_4_dp"
+                android:paddingLeft="@dimen/dimen_4_dp"
+                android:paddingRight="@dimen/dimen_4_dp"
+                android:paddingBottom="28dp" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </FrameLayout>
 
 </FrameLayout>

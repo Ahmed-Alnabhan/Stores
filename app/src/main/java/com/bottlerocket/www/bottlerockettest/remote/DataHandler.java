@@ -4,10 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.util.Log;
 
 import com.bottlerocket.www.bottlerockettest.database.DBHelper;
 import com.bottlerocket.www.bottlerockettest.model.Store;
 import com.bottlerocket.www.bottlerockettest.model.Stores;
+import com.bottlerocket.www.bottlerockettest.presenter.stores.StoresPresenter;
+import com.bottlerocket.www.bottlerockettest.presenter.stores.StoresPresenterImplementer;
 import com.bottlerocket.www.bottlerockettest.provider.StoreContentProvider;
 import com.bottlerocket.www.bottlerockettest.utils.ApiUtils;
 import com.bottlerocket.www.bottlerockettest.utils.Constants;
@@ -22,16 +25,18 @@ import retrofit2.Response;
 
 public class DataHandler implements DataHandlerInterface {
 
-
+    private static final String TAG = DataHandler.class.getName();
     private StoresService storesService;
     private Stores stores;
     private SQLiteDatabase mDb;
     private DBHelper dbHelper;
     private Context context;
     private Store myStore;
+    private StoresPresenter storesPresenter;
 
     public DataHandler(Context context) {
         this.context = context;
+        storesPresenter = new StoresPresenterImplementer();
     }
 
     @Override
@@ -61,14 +66,24 @@ public class DataHandler implements DataHandlerInterface {
                             storeJsonInDB(myStore);
                         }
                     }
+                    // Retrieve data from database right after saving it successfully
+                    storesPresenter.getStores();
                 } else {
                     int statusCode = response.code();
+                    // Because this is not a release version, we can log the messages
+                    Log.d(TAG, String.valueOf(statusCode));
+                    // Retrieve data from database even though reading new json data has failed
+                    storesPresenter.getStores();
                 }
             }
 
             @Override
             public void onFailure(Call<Stores> call, Throwable t) {
-
+                // Because this is not a release version, we can log the messages
+                // We can use interception feature for more flexibility in error handling
+                Log.e(TAG + " - FAILURE:", t.getMessage());
+                // Retrieve data from database even though reading new json data has failed
+                storesPresenter.getStores();
             }
         });
 
