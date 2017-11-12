@@ -32,7 +32,7 @@ public class StoresFragment extends Fragment implements StoresView {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stores, container, false);
         storesPresenter = new StoresPresenterImplementer();
-        dataHandler = new DataHandler();
+        dataHandler = new DataHandler(getContext());
         dataHandler.getJSONData();
         storesPresenter.getStores();
         return view;

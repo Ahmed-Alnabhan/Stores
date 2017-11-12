@@ -17,6 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="com.bottlerocket.www.bottlerockettest.provider.StoreContentProvider"
+            android:name=".provider.StoreContentProvider"
+            android:exported="true"
+            android:multiprocess="true"/>
     </application>
 
 </manifest>

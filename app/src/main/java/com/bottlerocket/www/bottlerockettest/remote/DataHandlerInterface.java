@@ -1,6 +1,6 @@
 package com.bottlerocket.www.bottlerockettest.remote;
 
-import com.bottlerocket.www.bottlerockettest.model.Stores;
+import com.bottlerocket.www.bottlerockettest.model.Store;
 
 /**
  * Created by Ahmed on 11/11/2017.
@@ -8,5 +8,5 @@ import com.bottlerocket.www.bottlerockettest.model.Stores;
 
 public interface DataHandlerInterface {
     void getJSONData();
-    void storeJsonInDB(Stores stores);
+    void storeJsonInDB(Store store);
 }
