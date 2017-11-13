@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_store_layout"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +14,13 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/no_data_message"
         android:visibility="gone"/>
+    <ProgressBar
+        android:id="@+id/stores_loading_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:visibility="gone"
+        android:indeterminate="true" />
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"

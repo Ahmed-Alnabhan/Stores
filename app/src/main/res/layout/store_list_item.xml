@@ -44,7 +44,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_store_logo"
         app:layout_constraintVertical_bias="0.05"
-        app:srcCompat="@drawable/ic_place" />
+        app:srcCompat="@drawable/ic_place"
+        android:contentDescription="@string/location_icon"/>
 
     <ImageView
         android:id="@+id/img_phone_icon"

@@ -8,4 +8,5 @@
     <string name="address">222 Moon Ave, Mycity, State 00000</string>
     <string name="phone">123-456-7890</string>
     <string name="no_data_message">Oops... There is no store information to display</string>
+    <string name="location_icon">The location icon</string>
 </resources>
