@@ -2,6 +2,8 @@ package com.bottlerocket.www.bottlerockettest.fragments;
 
 
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +19,7 @@ import com.bottlerocket.www.bottlerockettest.adapter.StoresAdapter;
 import com.bottlerocket.www.bottlerockettest.model.Stores;
 import com.bottlerocket.www.bottlerockettest.remote.DataHandler;
 import com.bottlerocket.www.bottlerockettest.remote.DataHandlerInterface;
+import com.bottlerocket.www.bottlerockettest.utils.Constants;
 import com.bottlerocket.www.bottlerockettest.view.stores.StoresView;
 
 import butterknife.BindView;
@@ -108,5 +111,20 @@ public class StoresFragment extends Fragment implements StoresView {
     @Override
     public void hideNoDataMessage() {
         noDataMessage.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(Constants.RECYCLER_STATE, storesRecyclerView.getLayoutManager().onSaveInstanceState());
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if(savedInstanceState != null){
+            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(Constants.RECYCLER_STATE);
+            storesRecyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
     }
 }

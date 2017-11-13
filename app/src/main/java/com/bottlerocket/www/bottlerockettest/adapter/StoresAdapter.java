@@ -45,7 +45,6 @@ public class StoresAdapter extends RecyclerView.Adapter<StoresViewHolder> {
                 .load(storeLogoURL)
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.error)
-                .fit()
                 .tag(context)
                 .into(holder.getImgStoreLogo());
         // Set the text into the textviews
