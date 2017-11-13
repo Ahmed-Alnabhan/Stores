@@ -15,10 +15,10 @@ public class StoresActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stores);
 
         if (savedInstanceState == null) {
-            StoresFragment aPsListFragment = new StoresFragment();
+            StoresFragment storesFragment = new StoresFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
-                    .add(R.id.stores_fragment_container, aPsListFragment)
+                    .add(R.id.stores_fragment_container, storesFragment)
                     .commit();
         } else {
             //selectedItem = savedInstanceState.getInt(Constants.SELECTED_ITEM);

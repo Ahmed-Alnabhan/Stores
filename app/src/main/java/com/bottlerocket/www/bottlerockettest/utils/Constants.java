@@ -40,4 +40,6 @@ public class Constants {
     // String query that drops the store table
     public static final String SQL_DROP_STORE_TABLE = "DROP TABLE IF EXISTS " + DatabaseContract.StoreEntry.TABLE_NAME;
     public static final String RECYCLER_STATE = "RecyclerState";
+    public static final String STORE_EXTRA = "Store Extra";
+    public static final String OBJECT_FROM_ACTIVITY = "Object to fragment";
 }

@@ -4,9 +4,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="store_logo">The store logo</string>
     <string name="store_name">Store Name</string>
-    <string name="image_place_icon">The address icon</string>
-    <string name="address">222 Moon Ave, Mycity, State 00000</string>
+    <string name="image_phone_icon">The phone icon</string>
+    <string name="address">222 Moon Ave </string>
     <string name="phone">123-456-7890</string>
     <string name="no_data_message">Oops... There is no store information to display</string>
     <string name="location_icon">The location icon</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="store_detail">Store Detail</string>
+    <string name="store_id">1234</string>
+    <string name="store_id_details">Store ID:</string>
+    <string name="address2">Mycity, State 00000</string>
+    <string name="cd_progress_bar">The progress bar</string>
+    <string name="description_logo">The logo of the app</string>
 </resources>

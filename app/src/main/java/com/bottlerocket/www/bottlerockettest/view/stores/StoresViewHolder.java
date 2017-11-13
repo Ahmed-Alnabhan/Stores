@@ -2,6 +2,7 @@ package com.bottlerocket.www.bottlerockettest.view.stores;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +30,12 @@ public class StoresViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.txt_address)
     TextView address;
 
+    @BindView(R.id.txt_address2)
+    TextView address2;
+
+    @BindView(R.id.store_item_group)
+    ViewGroup storeItemGroup;
+
     private Stores stores;
 
     public StoresViewHolder(View itemView, Stores stores) {
@@ -51,5 +58,13 @@ public class StoresViewHolder extends RecyclerView.ViewHolder {
 
     public TextView getAddress() {
         return address;
+    }
+
+    public TextView getAddress2() {
+        return address2;
+    }
+
+    public ViewGroup getStoreItemGroup() {
+        return storeItemGroup;
     }
 }
